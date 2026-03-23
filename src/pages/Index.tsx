@@ -362,13 +362,7 @@ export default function Index() {
               </div>
             ))}
           </div>
-          <button
-            className="inline-flex items-center gap-3 text-white font-montserrat text-sm tracking-[0.15em] uppercase px-10 py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            style={{ background: '#d4748a' }}
-          >
-            <Icon name="Heart" size={16} />
-            Подтвердить участие
-          </button>
+
         </div>
       </Section>
 
