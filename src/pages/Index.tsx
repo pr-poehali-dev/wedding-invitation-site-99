@@ -107,14 +107,6 @@ const programItems = [
   { time: '23:00', icon: '✨', title: 'Фейерверк', desc: 'Грандиозный финал вечера' },
 ];
 
-const galleryImages = [
-  'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1529636444744-adffc9135a5e?w=400&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1546975490-a79abdd54733?w=400&h=400&fit=crop',
-];
 
 const gifts = [
   { icon: '🏠', title: 'Наш дом', desc: 'Мы с радостью примем любую помощь для нашего нового дома', account: 'По запросу' },
@@ -144,7 +136,6 @@ export default function Index() {
   const navLinks = [
     { id: 'date', label: 'Дата' },
     { id: 'program', label: 'Программа' },
-    { id: 'gallery', label: 'Галерея' },
     { id: 'gifts', label: 'Подарки' },
     { id: 'contacts', label: 'Контакты' },
   ];
@@ -316,30 +307,6 @@ export default function Index() {
         </div>
       </Section>
 
-      {/* Gallery */}
-      <Section id="gallery" className="bg-[#f9d5d8]/20">
-        <div className="max-w-5xl mx-auto">
-          <SectionTitle subtitle="Наша история">Галерея</SectionTitle>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4" style={{ gridAutoRows: '200px' }}>
-            {galleryImages.map((src, i) => (
-              <div
-                key={i}
-                className={`overflow-hidden rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-[1.02] ${i === 0 ? 'row-span-2' : ''}`}
-              >
-                <img
-                  src={src}
-                  alt={`Фото ${i + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-          <p className="text-center font-caveat text-2xl text-wedding-rose mt-8">
-            Здесь появятся ваши фотографии ✨
-          </p>
-        </div>
-      </Section>
 
       {/* Gifts */}
       <Section id="gifts" className="bg-white/50">
