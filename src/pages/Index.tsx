@@ -236,9 +236,11 @@ export default function Index() {
               { emoji: '📍', title: 'Кирово-Чепецкий район', sub: 'д. Каркино, ул. Центральная, 27', extra: 'Усадьба' },
             ].map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-8 shadow-sm border text-center hover:shadow-md transition-shadow" style={{ borderColor: '#f9d5d8' }}>
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border" style={{ background: '#fff1f2', borderColor: 'rgba(212,116,138,0.2)' }}>
-                  <span className="text-3xl">{card.emoji}</span>
-                </div>
+                {card.emoji && (
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border" style={{ background: '#fff1f2', borderColor: 'rgba(212,116,138,0.2)' }}>
+                    <span className="text-3xl">{card.emoji}</span>
+                  </div>
+                )}
                 <h3 className="font-cormorant text-3xl font-medium text-wedding-dark mb-2">{card.title}</h3>
                 <p className="font-montserrat text-sm tracking-wide" style={{ color: 'rgba(107,58,69,0.7)' }}>{card.sub}</p>
                 <div className="mt-4 pt-4 border-t" style={{ borderColor: '#f9d5d8' }}>
