@@ -58,7 +58,7 @@ function SectionTitle({ children, subtitle }: { children: React.ReactNode; subti
 }
 
 function Countdown() {
-  const weddingDate = new Date('2026-06-20T14:00:00');
+  const weddingDate = new Date('2026-08-15T14:00:00');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -154,7 +154,7 @@ export default function Index() {
             onClick={() => scrollTo('hero')}
             className="font-cormorant text-2xl font-light text-wedding-dark tracking-wider hover:text-wedding-rose transition-colors"
           >
-            А & М
+            Д & В
           </button>
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((l) => (
@@ -200,13 +200,13 @@ export default function Index() {
             Приглашаем вас разделить с нами
           </p>
           <div>
-            <h1 className="font-cormorant text-7xl md:text-9xl font-light text-wedding-dark leading-none">Анна</h1>
+            <h1 className="font-cormorant text-7xl md:text-9xl font-light text-wedding-dark leading-none">Дарья</h1>
             <p className="font-caveat text-5xl md:text-6xl text-wedding-rose my-2">&</p>
-            <h1 className="font-cormorant text-7xl md:text-9xl font-light text-wedding-dark leading-none">Михаил</h1>
+            <h1 className="font-cormorant text-7xl md:text-9xl font-light text-wedding-dark leading-none">Владислав</h1>
           </div>
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="h-px w-16" style={{ background: '#c9a96e' }} />
-            <p className="font-montserrat text-sm tracking-[0.3em] uppercase text-wedding-gold">20 июня 2026</p>
+            <p className="font-montserrat text-sm tracking-[0.3em] uppercase text-wedding-gold">15 августа 2026</p>
             <div className="h-px w-16" style={{ background: '#c9a96e' }} />
           </div>
           <p className="font-cormorant text-xl italic text-wedding-text mt-4 opacity-80 max-w-lg mx-auto">
@@ -234,8 +234,8 @@ export default function Index() {
           <SectionTitle subtitle="Место и время">Дата свадьбы</SectionTitle>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { emoji: '📅', title: '20 июня 2026', sub: 'Суббота', extra: 'Начало в 14:00' },
-              { emoji: '📍', title: 'Москва', sub: 'ул. Садовая, 15', extra: 'Банкетный зал «Романс»' },
+              { emoji: '📅', title: '15 августа 2026', sub: 'Суббота', extra: 'Начало в 14:00' },
+              { emoji: '📍', title: 'Кирово-Чепецкий район', sub: 'д. Каркино, ул. Центральная, 27', extra: '' },
             ].map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-8 shadow-sm border text-center hover:shadow-md transition-shadow" style={{ borderColor: '#f9d5d8' }}>
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border" style={{ background: '#fff1f2', borderColor: 'rgba(212,116,138,0.2)' }}>
@@ -269,7 +269,7 @@ export default function Index() {
           <p className="font-montserrat text-xs tracking-widest uppercase text-wedding-dark">Место проведения</p>
         </div>
         <a
-          href="https://maps.google.com/?q=Москва,+ул.+Садовая,+15"
+          href="https://maps.google.com/?q=Кирово-Чепецкий+район,+д.+Каркино,+ул.+Центральная,+27"
           target="_blank"
           rel="noopener noreferrer"
           className="absolute bottom-4 right-4 text-white font-montserrat text-xs tracking-wider uppercase px-5 py-2 rounded-full flex items-center gap-2 transition-colors shadow-md"
@@ -347,8 +347,8 @@ export default function Index() {
           </p>
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             {[
-              { name: 'Анна', role: 'Невеста', phone: '+7 (999) 123-45-67', emoji: '👰' },
-              { name: 'Михаил', role: 'Жених', phone: '+7 (999) 765-43-21', emoji: '🤵' },
+              { name: 'Дарья', role: 'Невеста', phone: '+7 (999) 123-45-67', emoji: '👰' },
+              { name: 'Владислав', role: 'Жених', phone: '+7 (999) 765-43-21', emoji: '🤵' },
             ].map((person) => (
               <div key={person.name} className="bg-white rounded-2xl p-8 shadow-sm" style={{ border: '1px solid #f9d5d8' }}>
                 <div className="text-4xl mb-3">{person.emoji}</div>
@@ -376,8 +376,8 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="py-10 text-center" style={{ background: '#4a2d35' }}>
-        <p className="font-cormorant text-3xl font-light text-white/80 mb-2">Анна & Михаил</p>
-        <p className="font-caveat text-xl text-wedding-rose mb-4">20 июня 2026</p>
+        <p className="font-cormorant text-3xl font-light text-white/80 mb-2">Дарья & Владислав</p>
+        <p className="font-caveat text-xl text-wedding-rose mb-4">15 августа 2026</p>
         <div className="flex items-center justify-center gap-4 mb-4">
           <div className="h-px w-16" style={{ background: 'rgba(201,169,110,0.3)' }} />
           <span className="font-caveat text-xl" style={{ color: 'rgba(201,169,110,0.5)' }}>❀</span>
