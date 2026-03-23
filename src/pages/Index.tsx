@@ -341,7 +341,7 @@ export default function Index() {
           <SectionTitle subtitle="Свяжитесь с нами">Контакты</SectionTitle>
           <p className="font-cormorant text-xl italic mb-10" style={{ color: 'rgba(107,58,69,0.8)' }}>
             Если у вас есть вопросы, мы рады ответить!<br />
-            Пожалуйста, подтвердите своё присутствие до 1 мая 2026 года.
+            Пожалуйста, подтвердите своё присутствие до 15 июня 2026 года.
           </p>
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             {[
