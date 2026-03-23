@@ -358,7 +358,6 @@ export default function Index() {
                 >
                   <Icon name="Phone" size={14} />
                   {person.phone}
-                  {person.name === 'Владислав' && <span>🤵</span>}
                 </a>
               </div>
             ))}
