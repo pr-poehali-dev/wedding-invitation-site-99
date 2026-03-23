@@ -197,7 +197,7 @@ export default function Index() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.35), rgba(253,246,236,0.92))' }} />
         <div className="relative z-10 text-center px-6 pt-20" style={{ animation: 'fade-up 1s ease-out both' }}>
           <p className="font-caveat text-2xl text-wedding-rose mb-6">
-            Приглашаем вас разделить с нами
+            Приглашаем вас разделить с нами это радостное событие
           </p>
           <div>
             <h1 className="font-cormorant text-7xl md:text-9xl font-light text-wedding-dark leading-none">Дарья</h1>
