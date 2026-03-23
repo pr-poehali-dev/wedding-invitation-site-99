@@ -347,8 +347,8 @@ export default function Index() {
           </p>
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             {[
-              { name: 'Дарья', role: 'Невеста', phone: '+7 (999) 123-45-67', emoji: '👰' },
-              { name: 'Владислав', role: 'Жених', phone: '+7 (999) 765-43-21', emoji: '🤵' },
+              { name: 'Дарья', role: 'Невеста', phone: '+7 (901) 449-60-09', emoji: '👰' },
+              { name: 'Владислав', role: 'Жених', phone: '+7 (991) 792-32-07', emoji: '🤵' },
             ].map((person) => (
               <div key={person.name} className="bg-white rounded-2xl p-8 shadow-sm" style={{ border: '1px solid #f9d5d8' }}>
                 <div className="text-4xl mb-3">{person.emoji}</div>
