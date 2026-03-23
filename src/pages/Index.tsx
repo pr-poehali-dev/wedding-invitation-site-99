@@ -232,7 +232,7 @@ export default function Index() {
           <SectionTitle subtitle="Место и время">Дата свадьбы</SectionTitle>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { emoji: '📅', title: '15 августа 2026', sub: 'Суббота', extra: 'Начало в 14:30' },
+              { emoji: '', title: '15 августа 2026', sub: 'Суббота', extra: 'Начало в 14:30' },
               { emoji: '📍', title: 'Кирово-Чепецкий район', sub: 'д. Каркино, ул. Центральная, 27', extra: 'Усадьба' },
             ].map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-8 shadow-sm border text-center hover:shadow-md transition-shadow" style={{ borderColor: '#f9d5d8' }}>
