@@ -162,7 +162,7 @@ export default function Index() {
             className="text-xl tracking-wider transition-colors"
             style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}
           >
-            🪻 В & С
+            🪻 Д & В
           </button>
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((l) => (
@@ -214,13 +214,13 @@ export default function Index() {
             Приглашаем вас разделить с нами это радостное событие
           </p>
           <div>
-            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>Валерия</h1>
+            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>Дарья</h1>
             <div className="flex items-center justify-center gap-4 my-4">
               <span className="text-2xl">🌸</span>
               <span className="text-3xl font-light" style={{ color: 'var(--wedding-rose)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>&</span>
               <span className="text-2xl">🌸</span>
             </div>
-            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>Сергей</h1>
+            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>Владислав</h1>
           </div>
           <LavenderDivider />
           <p className="text-sm tracking-[0.3em] uppercase" style={{ color: 'var(--wedding-rose)', fontFamily: 'Georgia, serif' }}>06 июня 2026</p>
@@ -340,8 +340,8 @@ export default function Index() {
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: 'Валерия', role: 'Невеста', phone: '+7 (901) 449-60-09' },
-              { name: 'Сергей', role: 'Жених', phone: '+7 (991) 792-32-07' },
+              { name: 'Дарья', role: 'Невеста', phone: '+7 (901) 449-60-09' },
+              { name: 'Владислав', role: 'Жених', phone: '+7 (991) 792-32-07' },
             ].map((person) => (
               <div key={person.name} className="rounded-3xl p-10 border-2" style={{ background: 'white', borderColor: 'var(--wedding-blush)' }}>
                 <h3 className="text-2xl mb-1" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>{person.name}</h3>
@@ -363,7 +363,7 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-12 text-center" style={{ background: 'var(--wedding-dark)' }}>
         <div className="text-2xl mb-3 opacity-60">🪻 🌸 🪻</div>
-        <p className="text-2xl mb-2" style={{ color: 'rgba(255,255,255,0.85)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Валерия & Сергей</p>
+        <p className="text-2xl mb-2" style={{ color: 'rgba(255,255,255,0.85)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Дарья & Владислав</p>
         <p className="text-xs tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'Georgia, serif' }}>06 июня 2026</p>
         <div className="text-xl mt-3 opacity-30">🌸</div>
       </footer>
