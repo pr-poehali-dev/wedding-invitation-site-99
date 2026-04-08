@@ -142,7 +142,7 @@ export default function Index() {
             className="text-xl tracking-widest transition-colors"
             style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}
           >
-            Е & В
+            А & Л
           </button>
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((l) => (
@@ -199,9 +199,9 @@ export default function Index() {
             <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2" style={{ borderColor: 'var(--wedding-gold)' }} />
             <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2" style={{ borderColor: 'var(--wedding-gold)' }} />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2" style={{ borderColor: 'var(--wedding-gold)' }} />
-            <h1 className="text-6xl md:text-8xl leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Елена</h1>
+            <h1 className="text-6xl md:text-8xl leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Анжела</h1>
             <p className="text-3xl md:text-4xl my-3" style={{ color: 'var(--wedding-gold)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>& </p>
-            <h1 className="text-6xl md:text-8xl leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Владимир</h1>
+            <h1 className="text-6xl md:text-8xl leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Леонид</h1>
           </div>
 
           <Ornament />
@@ -325,8 +325,8 @@ export default function Index() {
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: 'Елена', role: 'Невеста', phone: '+7 (901) 449-60-09' },
-              { name: 'Владимир', role: 'Жених', phone: '+7 (991) 792-32-07' },
+              { name: 'Анжела', role: 'Невеста', phone: '+7 (901) 449-60-09' },
+              { name: 'Леонид', role: 'Жених', phone: '+7 (991) 792-32-07' },
             ].map((person) => (
               <div key={person.name} className="p-10 relative" style={{ background: 'var(--wedding-blush)', border: '1px solid var(--wedding-gold)' }}>
                 <div className="absolute top-2 left-2 w-4 h-4 border-t border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
@@ -352,7 +352,7 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-12 text-center" style={{ background: 'var(--wedding-dark)' }}>
         <div style={{ color: 'var(--wedding-gold)', opacity: 0.6, letterSpacing: '0.5em', marginBottom: '0.75rem' }}>✦ ✦ ✦</div>
-        <p className="text-2xl mb-2" style={{ color: 'rgba(255,255,255,0.85)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Елена & Владимир</p>
+        <p className="text-2xl mb-2" style={{ color: 'rgba(255,255,255,0.85)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Анжела & Леонид</p>
         <p className="text-xs tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'Georgia, serif' }}>06 июня 2026</p>
         <div style={{ color: 'var(--wedding-gold)', opacity: 0.4, letterSpacing: '0.5em', marginTop: '0.75rem' }}>❧</div>
       </footer>
