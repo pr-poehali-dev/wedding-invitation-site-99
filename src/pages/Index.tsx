@@ -64,7 +64,7 @@ function SectionTitle({ children, subtitle }: { children: React.ReactNode; subti
 }
 
 function Countdown() {
-  const weddingDate = new Date('2026-08-15T14:00:00');
+  const weddingDate = new Date('2026-06-06T14:00:00');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -162,7 +162,7 @@ export default function Index() {
             className="text-xl font-light tracking-widest transition-colors"
             style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}
           >
-            🌿 Д & В
+            🌿 Е & В
           </button>
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((l) => (
@@ -212,11 +212,11 @@ export default function Index() {
             🌱 Приглашаем вас разделить с нами это радостное событие 🌱
           </p>
           <div>
-            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}>Дарья</h1>
+            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}>Елена</h1>
             <p className="text-4xl md:text-5xl font-light my-4" style={{ color: 'var(--wedding-gold)' }}>🌿 & 🌿</p>
-            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}>Владислав</h1>
+            <h1 className="text-7xl md:text-9xl font-light leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}>Владимир</h1>
           </div>
-          <p className="text-xs tracking-[0.4em] uppercase mt-10" style={{ color: 'var(--wedding-rose)' }}>15 августа 2026</p>
+          <p className="text-xs tracking-[0.4em] uppercase mt-10" style={{ color: 'var(--wedding-rose)' }}>06 июня 2026</p>
           <button
             onClick={() => scrollTo('date')}
             className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase px-8 py-3 rounded-full transition-all duration-300 border"
@@ -237,7 +237,7 @@ export default function Index() {
           <SectionTitle subtitle="Место и время">Дата свадьбы</SectionTitle>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { leaf: '🗓️', title: '15 августа 2026', sub: 'Суббота', extra: 'Начало в 14:30' },
+              { leaf: '🗓️', title: '06 июня 2026', sub: 'Суббота', extra: 'Начало в 14:30' },
               { leaf: '📍', title: 'Кирово-Чепецкий район', sub: 'д. Каркино, ул. Центральная, 27', extra: 'Усадьба' },
             ].map((card) => (
               <div key={card.title} className="rounded-2xl p-10 text-center border" style={{ background: 'var(--wedding-cream)', borderColor: 'var(--wedding-blush)' }}>
@@ -356,8 +356,8 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-12 text-center" style={{ background: 'var(--wedding-dark)' }}>
         <div className="text-3xl mb-3">🌿</div>
-        <p className="text-2xl font-light text-white mb-2" style={{ fontFamily: 'Georgia, serif' }}>Дарья & Владислав</p>
-        <p className="text-xs tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.45)' }}>15 августа 2026</p>
+        <p className="text-2xl font-light text-white mb-2" style={{ fontFamily: 'Georgia, serif' }}>Елена & Владимир</p>
+        <p className="text-xs tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.45)' }}>06 июня 2026</p>
         <div className="text-2xl mt-4 opacity-40">🍃</div>
       </footer>
 
