@@ -43,12 +43,12 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --wedding-rose: #d4748a;
-    --wedding-blush: #f9d5d8;
-    --wedding-cream: #fdf6ec;
-    --wedding-gold: #c9a96e;
-    --wedding-dark: #4a2d35;
-    --wedding-text: #6b3a45;
+    --wedding-rose: #888888;
+    --wedding-blush: #f0f0f0;
+    --wedding-cream: #ffffff;
+    --wedding-gold: #333333;
+    --wedding-dark: #111111;
+    --wedding-text: #444444;
   }
 }
 
@@ -144,29 +144,7 @@
   }
 
   .petal {
-    position: fixed;
-    pointer-events: none;
-    z-index: 50;
-    font-size: 1.2rem;
-    animation: petal-fall linear infinite;
-    opacity: 0;
-  }
-}
-
-@keyframes petal-fall {
-  0% {
-    transform: translateY(-20px) rotate(0deg) translateX(0);
-    opacity: 0;
-  }
-  5% {
-    opacity: 0.7;
-  }
-  90% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg) translateX(40px);
-    opacity: 0;
+    display: none;
   }
 }
 
@@ -201,15 +179,5 @@
 }
 
 .gold-shimmer {
-  background: linear-gradient(
-    90deg,
-    var(--wedding-gold),
-    #e8c97a,
-    var(--wedding-gold)
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
+  color: var(--wedding-dark);
 }
