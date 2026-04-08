@@ -3,7 +3,7 @@ import Icon from '@/components/ui/icon';
 
 const HERO_IMAGE = 'https://cdn.poehali.dev/projects/43ea5717-9b70-406b-b133-9531b1275363/files/3404de04-a10f-4118-8917-77aca42e86c7.jpg';
 
-const leaves = ['🌿', '🍃', '☘️', '🌱', '🍀'];
+const leaves = ['🦋', '🌸', '🦋', '🌺', '✨'];
 
 function Leaf({ id }: { id: number }) {
   const style: React.CSSProperties = {
