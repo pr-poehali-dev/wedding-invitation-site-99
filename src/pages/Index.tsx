@@ -27,12 +27,12 @@ function Section({ id, children, className = '' }: { id: string; children: React
   );
 }
 
-function Ornament() {
+function GoldLine() {
   return (
-    <div className="flex items-center justify-center gap-3 my-4">
-      <div className="h-px flex-1 max-w-[60px]" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
-      <span style={{ color: 'var(--wedding-gold)', fontSize: '1.1rem', letterSpacing: '0.3em' }}>✦ ✦ ✦</span>
-      <div className="h-px flex-1 max-w-[60px]" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+    <div className="flex items-center justify-center gap-4 my-6">
+      <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(to right, transparent, var(--wedding-gold))' }} />
+      <div className="w-1.5 h-1.5 rotate-45" style={{ background: 'var(--wedding-gold)' }} />
+      <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(to left, transparent, var(--wedding-gold))' }} />
     </div>
   );
 }
@@ -40,9 +40,9 @@ function Ornament() {
 function SectionTitle({ children, subtitle }: { children: React.ReactNode; subtitle?: string }) {
   return (
     <div className="text-center mb-16">
-      {subtitle && <p className="text-xs tracking-[0.35em] uppercase mb-3" style={{ color: 'var(--wedding-rose)', fontFamily: '"Palatino Linotype", Palatino, serif' }}>{subtitle}</p>}
-      <h2 className="text-4xl md:text-5xl" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>{children}</h2>
-      <Ornament />
+      {subtitle && <p className="text-xs tracking-[0.4em] uppercase mb-4" style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif' }}>{subtitle}</p>}
+      <h2 className="text-4xl md:text-5xl font-light tracking-widest uppercase" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif', letterSpacing: '0.15em' }}>{children}</h2>
+      <GoldLine />
     </div>
   );
 }
@@ -68,24 +68,21 @@ function Countdown() {
   }, []);
 
   return (
-    <div className="flex gap-4 md:gap-8 justify-center mt-12">
+    <div className="flex gap-4 md:gap-10 justify-center mt-14">
       {[
         { val: timeLeft.days, label: 'дней' },
         { val: timeLeft.hours, label: 'часов' },
         { val: timeLeft.minutes, label: 'минут' },
         { val: timeLeft.seconds, label: 'секунд' },
-      ].map(({ val, label }) => (
-        <div key={label} className="text-center">
-          <div
-            className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center border-2 relative"
-            style={{ borderColor: 'var(--wedding-gold)', background: 'var(--wedding-cream)' }}
-          >
-            <div className="absolute inset-1 border" style={{ borderColor: 'var(--wedding-gold)', opacity: 0.3 }} />
-            <span className="text-2xl md:text-3xl tabular-nums relative z-10" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif' }}>
+      ].map(({ val, label }, i) => (
+        <div key={label} className="text-center flex items-center gap-4 md:gap-10">
+          <div>
+            <div className="text-4xl md:text-5xl font-light tabular-nums" style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif' }}>
               {String(val).padStart(2, '0')}
-            </span>
+            </div>
+            <p className="text-xs tracking-[0.3em] uppercase mt-2" style={{ color: 'var(--wedding-text)', fontFamily: 'Georgia, serif' }}>{label}</p>
           </div>
-          <p className="text-xs tracking-widest uppercase mt-2" style={{ color: 'var(--wedding-rose)', fontFamily: 'Georgia, serif' }}>{label}</p>
+          {i < 3 && <div className="text-xl" style={{ color: 'var(--wedding-gold)', opacity: 0.4 }}>·</div>}
         </div>
       ))}
     </div>
@@ -135,12 +132,12 @@ export default function Index() {
     <div className="min-h-screen relative overflow-x-hidden" style={{ background: 'var(--wedding-cream)', color: 'var(--wedding-text)' }}>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ background: 'rgba(250,244,236,0.95)', borderColor: 'var(--wedding-gold)', borderBottomWidth: '1px' }}>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ background: 'rgba(13,13,13,0.95)', borderColor: 'rgba(212,175,90,0.2)' }}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <button
             onClick={() => scrollTo('hero')}
-            className="text-xl tracking-widest transition-colors"
-            style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}
+            className="text-lg tracking-[0.3em] uppercase transition-colors"
+            style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif' }}
           >
             А & Л
           </button>
@@ -149,24 +146,24 @@ export default function Index() {
               <button
                 key={l.id}
                 onClick={() => scrollTo(l.id)}
-                className="text-xs tracking-[0.25em] uppercase transition-colors"
-                style={{ color: activeSection === l.id ? 'var(--wedding-gold)' : 'var(--wedding-rose)', fontFamily: 'Georgia, serif' }}
+                className="text-xs tracking-[0.3em] uppercase transition-colors"
+                style={{ color: activeSection === l.id ? 'var(--wedding-gold)' : 'rgba(200,192,176,0.6)', fontFamily: 'Georgia, serif' }}
               >
                 {l.label}
               </button>
             ))}
           </div>
-          <button className="md:hidden" style={{ color: 'var(--wedding-dark)' }} onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="md:hidden" style={{ color: 'var(--wedding-gold)' }} onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? 'X' : 'Menu'} size={20} />
           </button>
         </div>
         {menuOpen && (
-          <div className="md:hidden border-t px-6 py-4 flex flex-col gap-4" style={{ background: 'rgba(250,244,236,0.98)', borderColor: 'var(--wedding-blush)' }}>
+          <div className="md:hidden border-t px-6 py-4 flex flex-col gap-4" style={{ background: '#0d0d0d', borderColor: 'rgba(212,175,90,0.2)' }}>
             {navLinks.map((l) => (
               <button
                 key={l.id}
                 onClick={() => scrollTo(l.id)}
-                className="text-sm tracking-widest uppercase text-left transition-colors py-1"
+                className="text-sm tracking-[0.25em] uppercase text-left transition-colors py-1"
                 style={{ color: 'var(--wedding-text)', fontFamily: 'Georgia, serif' }}
               >
                 {l.label}
@@ -179,39 +176,46 @@ export default function Index() {
       {/* Hero */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(250,244,236,0.4), rgba(250,244,236,0.55), rgba(250,244,236,0.93))' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7), rgba(13,13,13,0.97))' }} />
 
-        {/* Vintage corner ornaments */}
-        <div className="absolute top-24 left-6 opacity-25 hidden md:block" style={{ color: 'var(--wedding-gold)', fontSize: '4rem', lineHeight: 1 }}>❧</div>
-        <div className="absolute top-24 right-6 opacity-25 hidden md:block" style={{ color: 'var(--wedding-gold)', fontSize: '4rem', lineHeight: 1, transform: 'scaleX(-1)' }}>❧</div>
-        <div className="absolute bottom-20 left-6 opacity-20 hidden md:block" style={{ color: 'var(--wedding-gold)', fontSize: '3rem', lineHeight: 1, transform: 'rotate(180deg) scaleX(-1)' }}>❧</div>
-        <div className="absolute bottom-20 right-6 opacity-20 hidden md:block" style={{ color: 'var(--wedding-gold)', fontSize: '3rem', lineHeight: 1, transform: 'rotate(180deg)' }}>❧</div>
+        {/* Geometric corner lines */}
+        <div className="absolute top-24 left-8 hidden md:block">
+          <div className="w-16 h-px" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+          <div className="w-px h-16" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+        </div>
+        <div className="absolute top-24 right-8 hidden md:block">
+          <div className="w-16 h-px ml-auto" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+          <div className="w-px h-16 ml-auto" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+        </div>
+        <div className="absolute bottom-20 left-8 hidden md:block">
+          <div className="w-px h-16" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+          <div className="w-16 h-px" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+        </div>
+        <div className="absolute bottom-20 right-8 hidden md:block">
+          <div className="w-px h-16 ml-auto" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+          <div className="w-16 h-px ml-auto" style={{ background: 'var(--wedding-gold)', opacity: 0.5 }} />
+        </div>
 
         <div className="relative z-10 text-center px-6 pt-20" style={{ animation: 'fade-up 1s ease-out both' }}>
-          <div className="mb-6" style={{ color: 'var(--wedding-gold)', letterSpacing: '0.4em', fontSize: '0.8rem' }}>✦ ✦ ✦</div>
-          <p className="text-xs tracking-[0.4em] uppercase mb-8" style={{ color: 'var(--wedding-rose)', fontFamily: 'Georgia, serif' }}>
+          <p className="text-xs tracking-[0.5em] uppercase mb-10" style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif' }}>
             Приглашаем вас разделить с нами это радостное событие
           </p>
-
-          {/* Vintage frame */}
-          <div className="relative inline-block px-8 md:px-16 py-6">
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2" style={{ borderColor: 'var(--wedding-gold)' }} />
-            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2" style={{ borderColor: 'var(--wedding-gold)' }} />
-            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2" style={{ borderColor: 'var(--wedding-gold)' }} />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2" style={{ borderColor: 'var(--wedding-gold)' }} />
-            <h1 className="text-6xl md:text-8xl leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Анжела</h1>
-            <p className="text-3xl md:text-4xl my-3" style={{ color: 'var(--wedding-gold)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>& </p>
-            <h1 className="text-6xl md:text-8xl leading-none" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Леонид</h1>
+          <div>
+            <h1 className="text-7xl md:text-9xl font-light tracking-widest uppercase" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif', letterSpacing: '0.1em' }}>Анжела</h1>
+            <div className="flex items-center justify-center gap-6 my-4">
+              <div className="h-px w-20" style={{ background: 'linear-gradient(to right, transparent, var(--wedding-gold))' }} />
+              <span className="text-2xl" style={{ color: 'var(--wedding-gold)' }}>&</span>
+              <div className="h-px w-20" style={{ background: 'linear-gradient(to left, transparent, var(--wedding-gold))' }} />
+            </div>
+            <h1 className="text-7xl md:text-9xl font-light tracking-widest uppercase" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif', letterSpacing: '0.1em' }}>Леонид</h1>
           </div>
-
-          <Ornament />
-          <p className="text-sm tracking-[0.4em] uppercase mt-2" style={{ color: 'var(--wedding-rose)', fontFamily: 'Georgia, serif' }}>06 июня 2026</p>
+          <p className="text-xs tracking-[0.5em] uppercase mt-10" style={{ color: 'rgba(212,175,90,0.7)', fontFamily: 'Georgia, serif' }}>06 июня 2026</p>
           <button
             onClick={() => scrollTo('date')}
-            className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase px-8 py-3 transition-all duration-300 border"
-            style={{ borderColor: 'var(--wedding-gold)', color: 'var(--wedding-dark)', background: 'transparent', fontFamily: 'Georgia, serif' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--wedding-gold)'; (e.currentTarget as HTMLButtonElement).style.color = 'white'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--wedding-dark)'; }}
+            className="mt-10 inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase px-10 py-4 transition-all duration-300"
+            style={{ border: '1px solid var(--wedding-gold)', color: 'var(--wedding-gold)', background: 'transparent', fontFamily: 'Georgia, serif' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--wedding-gold)'; (e.currentTarget as HTMLButtonElement).style.color = '#0d0d0d'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--wedding-gold)'; }}
           >
             Узнать подробнее
             <Icon name="ChevronDown" size={14} />
@@ -223,20 +227,20 @@ export default function Index() {
       <Section id="date" style={{ background: 'var(--wedding-blush)' } as React.CSSProperties}>
         <div className="max-w-4xl mx-auto">
           <SectionTitle subtitle="Место и время">Дата свадьбы</SectionTitle>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               { title: '06 июня 2026', sub: 'Суббота', extra: 'Начало в 14:30' },
               { title: 'Кирово-Чепецкий район', sub: 'д. Каркино, ул. Центральная, 27', extra: 'Усадьба' },
             ].map((card) => (
-              <div key={card.title} className="p-10 text-center relative" style={{ background: 'var(--wedding-cream)', border: '1px solid var(--wedding-gold)' }}>
-                <div className="absolute top-2 left-2 w-4 h-4 border-t border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute top-2 right-2 w-4 h-4 border-t border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <h3 className="text-2xl mb-2" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>{card.title}</h3>
-                <p className="text-sm" style={{ color: 'var(--wedding-rose)', fontFamily: 'Georgia, serif' }}>{card.sub}</p>
-                <div className="mt-5 pt-5 border-t" style={{ borderColor: 'var(--wedding-gold)', borderStyle: 'dashed', opacity: 0.5 }}>
-                  <p className="text-xs tracking-[0.2em] uppercase" style={{ color: 'var(--wedding-text)', fontFamily: 'Georgia, serif', opacity: 1 }}>{card.extra}</p>
+              <div key={card.title} className="p-10 text-center relative border" style={{ background: 'var(--wedding-cream)', borderColor: 'rgba(212,175,90,0.2)' }}>
+                <div className="absolute top-0 left-0 w-6 h-6 border-t border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute top-0 right-0 w-6 h-6 border-t border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <h3 className="text-2xl font-light tracking-wide mb-2" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}>{card.title}</h3>
+                <p className="text-sm tracking-widest uppercase" style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif', opacity: 0.8 }}>{card.sub}</p>
+                <div className="mt-6 pt-6 border-t" style={{ borderColor: 'rgba(212,175,90,0.2)' }}>
+                  <p className="text-xs tracking-[0.3em] uppercase" style={{ color: 'var(--wedding-text)', fontFamily: 'Georgia, serif' }}>{card.extra}</p>
                 </div>
               </div>
             ))}
@@ -251,7 +255,7 @@ export default function Index() {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d49.9766!3d58.5463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z0JrQuNGA0L7QstC-LdCn0LXQv9C10YbQutC40Lkg0YDQsNC50L7QvSwg0LQuINCa0LDRgNC60LjQvdC-LCDRg9C7LiDQptC10L3RgtGA0LDQu9GM0L3QsNGPLCAyNw!5e0!3m2!1sru!2sru!4v1700000000000"
           width="100%"
           height="100%"
-          style={{ border: 0, filter: 'sepia(40%) saturate(70%) brightness(0.95)' }}
+          style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) saturate(30%) brightness(0.85)' }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -261,8 +265,10 @@ export default function Index() {
           href="https://maps.google.com/?q=Кирово-Чепецкий+район,+д.+Каркино,+ул.+Центральная,+27"
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute bottom-4 right-4 text-white text-xs tracking-wider uppercase px-5 py-2 flex items-center gap-2 transition-colors"
-          style={{ background: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}
+          className="absolute bottom-4 right-4 text-xs tracking-[0.25em] uppercase px-6 py-3 flex items-center gap-2 transition-all"
+          style={{ background: 'var(--wedding-gold)', color: '#0d0d0d', fontFamily: 'Georgia, serif' }}
+          onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--wedding-dark)'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--wedding-gold)'; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--wedding-gold)'; (e.currentTarget as HTMLAnchorElement).style.color = '#0d0d0d'; }}
         >
           <Icon name="Navigation" size={14} />
           Маршрут
@@ -273,19 +279,20 @@ export default function Index() {
       <Section id="program" style={{ background: 'var(--wedding-cream)' } as React.CSSProperties}>
         <div className="max-w-3xl mx-auto">
           <SectionTitle subtitle="Расписание дня">Программа</SectionTitle>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {programItems.map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-6 p-6 relative"
-                style={{ background: 'var(--wedding-blush)', border: '1px solid var(--wedding-gold)', borderLeft: '4px solid var(--wedding-gold)' }}
+                className="flex items-center gap-6 p-6 transition-all duration-300 border"
+                style={{ background: 'var(--wedding-blush)', borderColor: 'rgba(212,175,90,0.15)', borderLeft: '2px solid var(--wedding-gold)' }}
               >
-                <div className="flex-shrink-0 text-center">
-                  <span className="text-base font-medium" style={{ color: 'var(--wedding-gold)', fontFamily: '"Palatino Linotype", Palatino, serif' }}>{item.time}</span>
+                <div className="flex-shrink-0 w-16 text-center">
+                  <span className="text-sm font-medium" style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif', letterSpacing: '0.1em' }}>{item.time}</span>
                 </div>
+                <div className="w-px h-8 opacity-30" style={{ background: 'var(--wedding-gold)' }} />
                 <div className="flex-1">
-                  <h3 className="text-base mb-1" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontSize: '1.1rem' }}>{item.title}</h3>
-                  <p className="text-sm" style={{ color: 'var(--wedding-text)', opacity: 0.8, fontFamily: 'Georgia, serif' }}>{item.desc}</p>
+                  <h3 className="text-base tracking-wide uppercase mb-1" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif', fontSize: '0.9rem', letterSpacing: '0.15em' }}>{item.title}</h3>
+                  <p className="text-sm" style={{ color: 'var(--wedding-text)', opacity: 0.7, fontFamily: 'Georgia, serif' }}>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -297,19 +304,19 @@ export default function Index() {
       <Section id="gifts" style={{ background: 'var(--wedding-blush)' } as React.CSSProperties}>
         <div className="max-w-4xl mx-auto">
           <SectionTitle subtitle="Пожелания">Подарки</SectionTitle>
-          <p className="text-center text-sm mb-12 -mt-6" style={{ color: 'var(--wedding-text)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontSize: '1.05rem' }}>
+          <p className="text-center text-sm mb-12 -mt-6" style={{ color: 'var(--wedding-text)', fontFamily: 'Georgia, serif', opacity: 0.7, letterSpacing: '0.05em' }}>
             Лучший подарок для нас — ваше присутствие и радость!
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-5">
             {gifts.map((g, i) => (
-              <div key={i} className="p-8 text-center relative" style={{ background: 'var(--wedding-cream)', border: '1px solid var(--wedding-gold)' }}>
-                <div className="absolute top-2 left-2 w-3 h-3 border-t border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute top-2 right-2 w-3 h-3 border-t border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute bottom-2 left-2 w-3 h-3 border-b border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="text-2xl mb-3" style={{ color: 'var(--wedding-gold)' }}>✦</div>
-                <h3 className="text-lg mb-3" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>{g.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--wedding-text)', opacity: 0.8, fontFamily: 'Georgia, serif' }}>{g.desc}</p>
+              <div key={i} className="p-8 text-center relative border" style={{ background: 'var(--wedding-cream)', borderColor: 'rgba(212,175,90,0.2)' }}>
+                <div className="absolute top-0 left-0 w-5 h-5 border-t border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute top-0 right-0 w-5 h-5 border-t border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute bottom-0 left-0 w-5 h-5 border-b border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="w-8 h-px mx-auto mb-6" style={{ background: 'var(--wedding-gold)' }} />
+                <h3 className="text-base uppercase tracking-widest mb-4" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif', fontSize: '0.8rem', letterSpacing: '0.2em' }}>{g.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--wedding-text)', opacity: 0.7, fontFamily: 'Georgia, serif' }}>{g.desc}</p>
               </div>
             ))}
           </div>
@@ -320,21 +327,21 @@ export default function Index() {
       <Section id="contacts" style={{ background: 'var(--wedding-cream)' } as React.CSSProperties}>
         <div className="max-w-3xl mx-auto text-center">
           <SectionTitle subtitle="Свяжитесь с нами">Контакты</SectionTitle>
-          <p className="text-sm mb-12 -mt-6" style={{ color: 'var(--wedding-text)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontSize: '1.05rem' }}>
+          <p className="text-sm mb-12 -mt-6" style={{ color: 'var(--wedding-text)', fontFamily: 'Georgia, serif', opacity: 0.7, letterSpacing: '0.05em' }}>
             Пожалуйста, подтвердите своё присутствие до 15 июня 2026 года.
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5">
             {[
               { name: 'Анжела', role: 'Невеста', phone: '+7 (901) 449-60-09' },
               { name: 'Леонид', role: 'Жених', phone: '+7 (991) 792-32-07' },
             ].map((person) => (
-              <div key={person.name} className="p-10 relative" style={{ background: 'var(--wedding-blush)', border: '1px solid var(--wedding-gold)' }}>
-                <div className="absolute top-2 left-2 w-4 h-4 border-t border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute top-2 right-2 w-4 h-4 border-t border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
-                <h3 className="text-2xl mb-1" style={{ color: 'var(--wedding-dark)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic' }}>{person.name}</h3>
-                <p className="text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--wedding-rose)', fontFamily: 'Georgia, serif' }}>{person.role}</p>
+              <div key={person.name} className="p-10 relative border" style={{ background: 'var(--wedding-blush)', borderColor: 'rgba(212,175,90,0.2)' }}>
+                <div className="absolute top-0 left-0 w-6 h-6 border-t border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute top-0 right-0 w-6 h-6 border-t border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r" style={{ borderColor: 'var(--wedding-gold)' }} />
+                <h3 className="text-2xl font-light tracking-widest uppercase mb-1" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}>{person.name}</h3>
+                <p className="text-xs tracking-[0.3em] uppercase mb-6" style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif', opacity: 0.8 }}>{person.role}</p>
                 <a
                   href={`tel:${person.phone.replace(/\D/g, '')}`}
                   className="inline-flex items-center gap-2 text-sm transition-colors"
@@ -350,11 +357,14 @@ export default function Index() {
       </Section>
 
       {/* Footer */}
-      <footer className="py-12 text-center" style={{ background: 'var(--wedding-dark)' }}>
-        <div style={{ color: 'var(--wedding-gold)', opacity: 0.6, letterSpacing: '0.5em', marginBottom: '0.75rem' }}>✦ ✦ ✦</div>
-        <p className="text-2xl mb-2" style={{ color: 'rgba(255,255,255,0.85)', fontFamily: '"Palatino Linotype", Palatino, serif', fontStyle: 'italic', fontWeight: 400 }}>Анжела & Леонид</p>
-        <p className="text-xs tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'Georgia, serif' }}>06 июня 2026</p>
-        <div style={{ color: 'var(--wedding-gold)', opacity: 0.4, letterSpacing: '0.5em', marginTop: '0.75rem' }}>❧</div>
+      <footer className="py-14 text-center" style={{ background: '#080808', borderTop: '1px solid rgba(212,175,90,0.2)' }}>
+        <div className="flex items-center justify-center gap-4 mb-5">
+          <div className="h-px w-16" style={{ background: 'linear-gradient(to right, transparent, var(--wedding-gold))', opacity: 0.5 }} />
+          <div className="w-1.5 h-1.5 rotate-45" style={{ background: 'var(--wedding-gold)', opacity: 0.6 }} />
+          <div className="h-px w-16" style={{ background: 'linear-gradient(to left, transparent, var(--wedding-gold))', opacity: 0.5 }} />
+        </div>
+        <p className="text-2xl font-light tracking-[0.2em] uppercase mb-2" style={{ color: 'var(--wedding-dark)', fontFamily: 'Georgia, serif' }}>Анжела & Леонид</p>
+        <p className="text-xs tracking-[0.4em] uppercase" style={{ color: 'var(--wedding-gold)', fontFamily: 'Georgia, serif', opacity: 0.5 }}>06 июня 2026</p>
       </footer>
     </div>
   );
