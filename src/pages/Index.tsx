@@ -201,7 +201,7 @@ export default function Index() {
           </div>
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="h-px w-16" style={{ background: '#c9a96e' }} />
-            <p className="font-montserrat text-sm tracking-[0.3em] uppercase text-wedding-gold">06 июня 2026</p>
+            <p className="font-montserrat text-sm tracking-[0.3em] uppercase text-wedding-gold">15 августа 2026</p>
             <div className="h-px w-16" style={{ background: '#c9a96e' }} />
           </div>
           <p className="font-cormorant text-xl italic text-wedding-text mt-4 opacity-80 max-w-lg mx-auto">
@@ -229,7 +229,7 @@ export default function Index() {
           <SectionTitle subtitle="Место и время">Дата свадьбы</SectionTitle>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { title: '06 июня 2026', sub: 'Суббота', extra: 'Начало в 14:30' },
+              { title: '15 августа 2026', sub: 'Суббота', extra: 'Начало в 14:30' },
               { title: 'Кирово-Чепецкий район', sub: 'д. Каркино, ул. Центральная, 27', extra: 'Усадьба' },
             ].map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-8 shadow-sm border text-center hover:shadow-md transition-shadow" style={{ borderColor: '#f9d5d8' }}>
@@ -355,7 +355,7 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-10 text-center" style={{ background: '#4a2d35' }}>
         <p className="font-cormorant text-3xl font-light text-white/80 mb-2">Дарья & Владислав</p>
-        <p className="font-caveat text-xl text-wedding-rose mb-4">06 июня 2026</p>
+        <p className="font-caveat text-xl text-wedding-rose mb-4">15 августа 2026</p>
         <div className="flex items-center justify-center gap-4 mb-4">
           <div className="h-px w-16" style={{ background: 'rgba(201,169,110,0.3)' }} />
           <span className="font-caveat text-xl" style={{ color: 'rgba(201,169,110,0.5)' }}>❀</span>
